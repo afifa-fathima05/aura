@@ -29,7 +29,7 @@ const roleDescriptions: Record<string, string> = {
 const getRoleDescription = (position: string) => roleDescriptions[position] || ''
 
 const clubMembers = [
-  // Founder
+  
   { id: 0, name: 'Mrs. S. SWATHI, M.E., (Ph.D)', position: 'Event cordinator', bio: 'Mrs. S. Swathi is the visionary founder of AURA and serves as its Event Coordinator. With a strong academic background and an unyielding passion for fostering creativity, she has been instrumental in shaping AURA’s mission and bringing groundbreaking events to life. Her leadership blends innovation with organization, ensuring every event leaves a lasting impact.',  imageUrl: '', achievements: [], icon: Crown, color: 'text-yellow-400' },
   { id: 1, name: 'Mrs. R. Vidhya Muthulakshmi, M.E., (Ph.D)', position: 'Event cordinator', bio: 'Mrs. R. Vidhya Muthulakshmi is a dedicated Event Coordinator and Consultant at AURA, known for her strategic guidance and commitment to excellence. Her expertise in planning and consulting ensures that each event aligns with AURA’s vision, delivering memorable experiences that inspire and engage the community.',  imageUrl: '', achievements: [], icon: Crown, color: 'text-yellow-400', },
   // President
@@ -38,7 +38,7 @@ const clubMembers = [
   { id: 3, name: 'HARSHAVARTHINI T ( III A)', position: 'PRESIDENT', bio: '', imageUrl: '', achievements: [], icon: Crown, color: 'text-aura-primary' },
 
   // Vice President
-  { id: 4, name: 'SUPREIT L (II H)', position: 'VICE-PRESIDENT', bio: '', imageUrl: '', achievements: [], icon: Users, color: 'text-neon-blue' },
+  { id: 4, name: 'HARI PREETH S K (II E)', position: 'VICE-PRESIDENT', bio: '', imageUrl: '', achievements: [], icon: Users, color: 'text-neon-blue' },
   { id: 5, name: 'KAKU KRISHNA PRIYA(II B)', position: 'VICE-PRESIDENT', bio: '', imageUrl: '', achievements: [], icon: Users, color: 'text-neon-blue' },
 
   // Secretary
@@ -46,8 +46,13 @@ const clubMembers = [
   { id: 7, name: 'SWEETY VINCENT(III C)', position: 'SECRETARY', bio: '', imageUrl: '', achievements: [], icon: Calendar, color: 'text-neon-purple' },
 
   // Treasurer
-  { id: 8, name: 'HIBBAN RASHID (III G)', position: 'TREASURER', bio: '', imageUrl: '', achievements: [], icon: Award, color: 'text-neon-pink' },
+  { id: 8, name: 'ALLENJOSH', position: 'TREASURER', bio: '', imageUrl: '', achievements: [], icon: Award, color: 'text-neon-pink' },
   { id: 9, name: 'FARIH MD (III G)', position: 'TREASURER', bio: '', imageUrl: '', achievements: [], icon: Award, color: 'text-neon-pink' },
+
+    // Public Relations & Outreach - Head
+  { id: 14, name: 'MOHAMED ARSHAD M ( III F)', position: 'PUBLIC RELATIONS & OUTREACH - HEAD', bio: '', imageUrl: '', achievements: [], icon: Target, color: 'text-neon-blue' },
+  { id: 15, name: 'PRAVEENSANKAR R S (III E)', position: 'PUBLIC RELATIONS & OUTREACH ', bio: '', imageUrl: '', achievements: [], icon: Target, color: 'text-neon-blue' },
+  
 
   // Cultural Coordinator
   { id: 10, name: 'HARISH J (III G)', position: 'CULTURAL COORDINATOR', bio: '', imageUrl: '', achievements: [], icon: Star, color: 'text-yellow-400' },
@@ -57,16 +62,13 @@ const clubMembers = [
   { id: 12, name: 'SURYA K (III D)', position: 'EVENTS COORDINATOR - HEAD', bio: '', imageUrl: '', achievements: [], icon: Trophy, color: 'text-neon-green' },
   { id: 13, name: 'HEPZHIBHA RACHEL S (III B)', position: 'EVENTS COORDINATOR - HEAD', bio: '', imageUrl: '', achievements: [], icon: Trophy, color: 'text-neon-green' },
 
-  // Public Relations & Outreach - Head
-  { id: 14, name: 'MOHAMED ARSHAD M ( III F)', position: 'PUBLIC RELATIONS & OUTREACH - HEAD', bio: '', imageUrl: '', achievements: [], icon: Target, color: 'text-neon-blue' },
-  { id: 15, name: 'PRAVEENSANKAR R S (III E)', position: 'PUBLIC RELATIONS & OUTREACH ', bio: '', imageUrl: '', achievements: [], icon: Target, color: 'text-neon-blue' },
-  { id: 16, name: 'POOVARASAN S (III E)', position: 'PUBLIC RELATIONS & OUTREACH ', bio: '', imageUrl: '', achievements: [], icon: Target, color: 'text-neon-blue' },
+
 
   // Master of Ceremonies
   { id: 17, name: 'JENISH J (III G)', position: 'MASTER OF CEREMONIES', bio: '', imageUrl: '', achievements: [], icon: Sparkles, color: 'text-neon-pink' },
   { id: 18, name: 'SIDDA GNANA CHARISHMA (III C)', position: 'MASTER OF CEREMONIES', bio: '', imageUrl: '', achievements: [], icon: Sparkles, color: 'text-neon-pink' },
   { id: 19, name: 'RAMYA S (III C)', position: 'MASTER OF CEREMONIES', bio: '', imageUrl: '', achievements: [], icon: Sparkles, color: 'text-neon-pink' },
-  { id: 20, name: 'HIBBAN RASHID (III G)', position: 'MASTER OF CEREMONIES', bio: '', imageUrl: '', achievements: [], icon: Sparkles, color: 'text-neon-pink' },
+  
   { id: 21, name: 'DHARSHINI(III A)', position: 'MASTER OF CEREMONIES', bio: '', imageUrl: '', achievements: [], icon: Sparkles, color: 'text-neon-pink' },
   { id: 22, name: 'KUNGUMAYEE M (II B)', position: 'MASTER OF CEREMONIES', bio: '', imageUrl: '', achievements: [], icon: Sparkles, color: 'text-neon-pink' },
   { id: 23, name: 'TARUN PADMANABHAN (II H)', position: 'MASTER OF CEREMONIES', bio: '', imageUrl: '', achievements: [], icon: Sparkles, color: 'text-neon-pink' },
@@ -91,6 +93,10 @@ const clubMembers = [
   // Content & Documentation Lead
   { id: 35, name: 'MUTHULAKSHMI A (III B)', position: 'CONTENT & DOCUMENTATION LEAD', bio: '', imageUrl: '', achievements: [], icon: FileText, color: 'text-neon-purple' },
   { id: 36, name: 'SANCTA FANNIE S (III C)', position: 'CONTENT & DOCUMENTATION LEAD', bio: '', imageUrl: '', achievements: [], icon: FileText, color: 'text-neon-purple' },
+
+  { id: 20, name: 'HIBBAN RASHID (III G)', position: 'MARKETING TEAM', bio: '', imageUrl: '', achievements: [], icon: Sparkles, color: 'text-neon-pink' },
+  { id: 16, name: 'POOVARASAN S (III E)', position: 'MARKETING TEAM ', bio: '', imageUrl: '', achievements: [], icon: Target, color: 'text-neon-blue' },
+  
 ]
 
 const clubStats = [

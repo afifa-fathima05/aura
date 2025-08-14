@@ -4,6 +4,7 @@ import './globals.css'
 import { ConditionalLayout } from '@/components/layout/ConditionalLayout'
 import { AuthProvider } from '@/components/providers/AuthProvider'
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {

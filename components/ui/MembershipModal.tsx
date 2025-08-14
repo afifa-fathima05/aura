@@ -189,6 +189,15 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
             </motion.div>
           ) : (
             <>
+              {/* Department availability note */}
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-4 p-4 bg-yellow-500/10 border border-yellow-500/40 rounded-lg text-yellow-300 font-urbanist"
+              >
+                ⚠️ Note: AURA Club is exclusive to AI & DS Dept for now. Expansion to other departments may come soon — stay tuned!
+              </motion.div>
+
               {error && (
                 <motion.div
                   initial={{ opacity: 0, y: -20 }}
