@@ -37,6 +37,7 @@ export interface MembershipApplication {
   registerNumber: string
   year: string
   section: string
+  department: string
   membershipId: string
   createdAt: Date
   status: 'pending' | 'approved' | 'rejected'
@@ -162,7 +163,7 @@ export const getMembershipApplications = async (): Promise<MembershipApplication
     
     const applications: MembershipApplication[] = []
     querySnapshot.forEach((doc) => {
-      const data = doc.data()
+      const data = doc.data() as any
       applications.push({
         id: doc.id,
         name: data.name || '',
@@ -171,6 +172,7 @@ export const getMembershipApplications = async (): Promise<MembershipApplication
         registerNumber: data.registerNumber || '',
         year: data.year || '',
         section: data.section || '',
+        department: data.department || 'AI&DS',
         membershipId: data.membershipId || '',
         createdAt: data.createdAt?.toDate?.() || new Date(),
         status: data.status || 'pending'

@@ -23,6 +23,13 @@ export default function WelcomeAlert() {
     }
   }, [])
 
+  useEffect(() => {
+    if (open) {
+      const auto = setTimeout(() => setOpen(false), 3500)
+      return () => clearTimeout(auto)
+    }
+  }, [open])
+
   const handleClose = () => {
     setOpen(false)
     try {
@@ -48,10 +55,12 @@ export default function WelcomeAlert() {
             </div>
             <div className="flex-1">
               <p className="font-syne text-sm sm:text-base font-semibold text-white mb-1">
-                Welcome to AURA
+                Welcome to AURA<br></br>
+                ALERT🚨‼️ 
               </p>
+            
               <p className="font-urbanist text-xs sm:text-sm text-gray-300 leading-relaxed">
-                Explore events, join the community, and discover where creativity meets reality.
+                The photograpy event is upcoming — all department participants can join...
               </p>
             </div>
             <button

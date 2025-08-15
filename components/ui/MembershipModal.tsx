@@ -30,6 +30,7 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
     registerNumber: '',
     year: '',
     section: '',
+    department: 'AI&DS',
     email: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -75,6 +76,9 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
         throw new Error('Please fill in all required fields')
       }
       
+      // Force department to AI&DS for now
+      const department = 'AI&DS'
+      
 
 
       // Attempt to ensure auth to satisfy rules that require request.auth != null
@@ -99,6 +103,7 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
 
       const result = await addMembershipApplication({
         ...formData,
+        department,
         name: formData.name.trim(),
         rollNumber: formData.rollNumber.trim(),
         registerNumber: formData.registerNumber.trim(),
@@ -117,6 +122,7 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
           registerNumber: '',
           year: '',
           section: '',
+          department: 'AI&DS',
           email: ''
         })
         onClose()
@@ -310,6 +316,38 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
                     ))}
                   </select>
                 </div>
+              </div>
+
+              {/* Department (AI&DS only; others muted) */}
+              <div>
+                <label className="block text-sm font-urbanist font-medium text-gray-300 mb-2">
+                  Department *
+                </label>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  {/* Active selectable option */}
+                  <label className="flex items-center gap-2 p-3 rounded-lg bg-white/5 border border-white/20 cursor-pointer hover:bg-white/10 transition">
+                    <input
+                      type="radio"
+                      name="department"
+                      value="AI&DS"
+                      checked={formData.department === 'AI&DS'}
+                      onChange={handleInputChange}
+                      className="accent-neon-blue"
+                    />
+                    <span className="text-white font-urbanist">AI&DS</span>
+                  </label>
+
+                  {/* Disabled placeholders */}
+                  {['CSE','IT','CSBS','EEE','ECE','MECH'].map((dept) => (
+                    <div key={dept} className="flex items-center gap-2 p-3 rounded-lg bg-white/5 border border-white/10">
+                      <input type="radio" disabled className="opacity-40" />
+                      <span className="text-gray-500 font-urbanist">{dept}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-2 text-xs text-gray-400 font-urbanist">
+                  Other departments coming soon.
+                </p>
               </div>
 
               {/* Submit Button */}

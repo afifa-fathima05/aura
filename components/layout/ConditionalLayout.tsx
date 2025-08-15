@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation'
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
 import { ParticleBackground } from '@/components/ui/ParticleBackground'
+import WelcomeAlert from '@/components/ui/WelcomeAlert'
 
 interface ConditionalLayoutProps {
   children: React.ReactNode
@@ -29,6 +30,7 @@ export function ConditionalLayout({ children }: ConditionalLayoutProps) {
     <div className="relative min-h-screen overflow-x-hidden">
       <ParticleBackground />
       <div className="relative z-10">
+        <WelcomeAlert />
         <Navbar />
         <main className="min-h-screen overflow-x-hidden">
           {children}
