@@ -41,32 +41,36 @@ export default function WelcomeAlert() {
     <AnimatePresence>
       {open && (
         <motion.div
-          initial={{ opacity: 0, y: -16 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -16, scale: 0.98 }}
-          transition={{ duration: 0.25, ease: "easeOut" }}
-          className="fixed top-4 left-1/2 z-[60] -translate-x-1/2 px-4 sm:px-6 w-full max-w-xl"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.9 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          className="fixed inset-0 z-[60] flex items-center justify-center p-4"
           role="alert"
           aria-live="polite"
         >
-          <div className="glass relative flex items-start gap-3 rounded-xl border border-white/15 p-4 sm:p-5 shadow-lg">
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" onClick={handleClose} />
+          
+          {/* Alert Content */}
+          <div className="glass relative flex items-start gap-2 sm:gap-3 rounded-xl border border-white/15 p-4 sm:p-6 shadow-2xl w-full max-w-md sm:max-w-lg">
             <div className="shrink-0 text-yellow-300/90">
               <XCircle className="h-6 w-6 rotate-45" aria-hidden="true" />
             </div>
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <p className="font-syne text-sm sm:text-base font-semibold text-white mb-1">
                 Welcome to AURA<br></br>
                 ALERT🚨‼️ 
               </p>
             
-              <p className="font-urbanist text-xs sm:text-sm text-gray-300 leading-relaxed">
+              <p className="font-urbanist text-xs sm:text-sm text-gray-300 leading-relaxed break-words">
                 The photograpy event is upcoming — all department participants can join...
               </p>
             </div>
             <button
               aria-label="Close welcome message"
               onClick={handleClose}
-              className="ml-2 rounded-full p-1.5 text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+              className="absolute -top-2 -right-2 rounded-full p-2 bg-white/10 text-gray-300 hover:text-white hover:bg-white/20 transition-colors border border-white/20"
             >
               <XCircle className="h-5 w-5" />
             </button>
