@@ -5,4 +5,4 @@ firebase.json
 .firebaserc
 .next
 .next/cache
-out
+out.DS_Store
