@@ -29,14 +29,12 @@ const roleDescriptions: Record<string, string> = {
 const getRoleDescription = (position: string) => roleDescriptions[position] || ''
 
 const clubMembers = [
-  
-<<<<<<< HEAD
+
   { id: 0, name: 'Mrs. S. SWATHI, M.E., (Ph.D)', position: 'Staff  cordinator', bio: 'Mrs. S. Swathi is the visionary founder of AURA and serves as its Event Coordinator. With a strong academic background and an unyielding passion for fostering creativity, she has been instrumental in shaping AURA’s mission and bringing groundbreaking events to life. Her leadership blends innovation with organization, ensuring every event leaves a lasting impact.',  imageUrl: '', achievements: [], icon: Crown, color: 'text-yellow-400' },
   { id: 1, name: 'Mrs. R. Vidhya Muthulakshmi, M.E., (Ph.D)', position: 'Staff  cordinator', bio: 'Mrs. R. Vidhya Muthulakshmi is a dedicated Event Coordinator and Consultant at AURA, known for her strategic guidance and commitment to excellence. Her expertise in planning and consulting ensures that each event aligns with AURA’s vision, delivering memorable experiences that inspire and engage the community.',  imageUrl: '', achievements: [], icon: Crown, color: 'text-yellow-400', },
-=======
-  { id: 0, name: 'Mrs. S. SWATHI, M.E., (Ph.D)', position: 'Event cordinator', bio: 'Mrs. S. Swathi is the visionary founder of AURA and serves as its Event Coordinator. With a strong academic background and an unyielding passion for fostering creativity, she has been instrumental in shaping AURA’s mission and bringing groundbreaking events to life. Her leadership blends innovation with organization, ensuring every event leaves a lasting impact.',  imageUrl: '', achievements: [], icon: Crown, color: 'text-yellow-400' },
-  { id: 1, name: 'Mrs. R. Vidhya Muthulakshmi, M.E., (Ph.D)', position: 'Event cordinator', bio: 'Mrs. R. Vidhya Muthulakshmi is a dedicated Event Coordinator and Consultant at AURA, known for her strategic guidance and commitment to excellence. Her expertise in planning and consulting ensures that each event aligns with AURA’s vision, delivering memorable experiences that inspire and engage the community.',  imageUrl: '', achievements: [], icon: Crown, color: 'text-yellow-400', },
->>>>>>> 316f11ef417317dc85197f0dc53f0449824f2d54
+
+
+
   // President
   // President
   { id: 2, name: 'HARIVISHNU K C (III G)', position: 'PRESIDENT', bio: '', imageUrl: '', achievements: [], icon: Crown, color: 'text-aura-primary' },
