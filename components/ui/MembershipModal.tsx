@@ -20,7 +20,7 @@ const yearOptions = [
 ]
 
 const sectionOptions = [
-  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H','I','J','K',
+  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H','I','J','K','L','M','N','O','P',
 ]
 
 // Single-choice participation options for the join form

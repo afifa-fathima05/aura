@@ -88,6 +88,22 @@ export function EventCard({ event, onClick, onLearnMore }: EventCardProps) {
           </div>
         </div>
 
+        {/* Coordinators */}
+        {event.coordinators && event.coordinators.length > 0 && (
+          <div className="mb-4">
+            <h4 className="text-[10px] sm:text-xs font-urbanist uppercase tracking-wider text-gray-400 mb-1">
+              EVENT COORDINATORS:
+            </h4>
+            <div className="space-y-1">
+              {event.coordinators.map((coord, i) => (
+                <div key={i} className="text-sm text-gray-300 font-urbanist">
+                  {coord}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Action Button */}
         <div className="flex items-center justify-between">
           <motion.button

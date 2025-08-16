@@ -37,7 +37,8 @@ export function PureFirestoreEventForm({ event, onSave, onCancel }: PureFirestor
     registrationLink: event?.registrationLink || '',
     details: event?.details || '',
     rules: event?.rules?.join('\n') || '',
-    likes: event?.likes || 0
+    likes: event?.likes || 0,
+    coordinators: event?.coordinators?.join('\n') || ''
   })
   
   const [imageFile, setImageFile] = useState<File | null>(null)
@@ -91,6 +92,7 @@ export function PureFirestoreEventForm({ event, onSave, onCancel }: PureFirestor
         date: new Date(formData.date),
         imageUrl,
         rules: formData.rules ? formData.rules.split('\n').filter(rule => rule.trim()) : [],
+        coordinators: formData.coordinators ? formData.coordinators.split('\n').map(s => s.trim()).filter(Boolean) : [],
         likes: Number(formData.likes)
       }
 
@@ -281,6 +283,21 @@ export function PureFirestoreEventForm({ event, onSave, onCancel }: PureFirestor
               rows={4}
               className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-neon-blue focus:bg-white/10 transition-all duration-300 font-urbanist resize-none"
               placeholder="Enter event rules (one per line)&#10;Example:&#10;RSVP required&#10;Business casual dress code&#10;No outside food allowed"
+            />
+          </div>
+
+          {/* Coordinators */}
+          <div>
+            <label className="block text-sm font-urbanist font-medium text-gray-300 mb-2">
+              Event Coordinators (Name - Phone, one per line)
+            </label>
+            <textarea
+              name="coordinators"
+              value={formData.coordinators}
+              onChange={handleInputChange}
+              rows={3}
+              className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-neon-blue focus:bg-white/10 transition-all duration-300 font-urbanist resize-none"
+              placeholder="Example:&#10;Monish Meghanathan - 9791123916&#10;Jane Doe - 9876543210"
             />
           </div>
 

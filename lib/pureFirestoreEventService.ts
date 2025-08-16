@@ -58,6 +58,7 @@ const convertFirestoreEvent = (doc: any): Event => {
     agenda: data.agenda || undefined,
     rules: data.rules || undefined,
     registrationLink: data.registrationLink || undefined,
+    coordinators: Array.isArray(data.coordinators) ? data.coordinators : (data.coordinators ? [String(data.coordinators)] : undefined),
     likes: data.likes || 0
   }
 

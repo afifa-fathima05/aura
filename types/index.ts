@@ -13,6 +13,7 @@ export interface Event {
   details?: string;
   likes?: number;
   agenda?: string;
+  coordinators?: string[]; // Names of event coordinators
   registrationLink?: string;
 }
 
@@ -28,6 +29,7 @@ export interface EventFormData {
   details?: string;
   likes?: number;
   agenda?: string;
+  coordinators?: string[]; // Names of event coordinators
   registrationLink?: string;
 }
 
