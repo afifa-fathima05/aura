@@ -338,7 +338,7 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
                   </label>
 
                   {/* Disabled placeholders */}
-                  {['CSE','IT','CSBS','EEE','ECE','MECH'].map((dept) => (
+                  {['AI&ML','CSE','IT','CSBS','EEE','ECE','MECH'].map((dept) => (
                     <div key={dept} className="flex items-center gap-2 p-3 rounded-lg bg-white/5 border border-white/10">
                       <input type="radio" disabled className="opacity-40" />
                       <span className="text-gray-500 font-urbanist">{dept}</span>

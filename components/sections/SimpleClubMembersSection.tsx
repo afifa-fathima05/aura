@@ -30,6 +30,8 @@ const getRoleDescription = (position: string) => roleDescriptions[position] || '
 
 const clubMembers = [
 
+  { id: 39, name: 'DR, S MALATH M.E.,Ph.D', position: 'PROFESSOR & HOD', bio: 'Dr. S. Malath is a highly accomplished academician and researcher with expertise in engineering education and leadership. With extensive teaching and research experience, Dr. Malath has guided numerous students in their academic pursuits while fostering innovation, discipline, and excellence in the department. As Head of the Department, she has played a key role in curriculum development, student mentorship, and promoting industry–institute collaboration.',  imageUrl: '', achievements: [], icon: Crown, color: 'text-yellow-400' },
+  { id: 40, name: 'DR, A JOSHI M.E.,Ph.D', position: 'EVENT SECRETARY', bio: 'Dr. A. Joshi is a dynamic academician and event coordinator recognized for his contributions to academic development and student engagement. With a strong background in engineering and research, he has actively organized and managed departmental and institutional events, seminars, and workshops. His efforts have created platforms for students to showcase talent, enhance technical knowledge, and build leadership skills.',  imageUrl: '', achievements: [], icon: Crown, color: 'text-yellow-400', },
   { id: 0, name: 'Mrs. S. SWATHI, M.E., (Ph.D)', position: 'Staff  cordinator', bio: 'Mrs. S. Swathi is the visionary founder of AURA and serves as its Event Coordinator. With a strong academic background and an unyielding passion for fostering creativity, she has been instrumental in shaping AURA’s mission and bringing groundbreaking events to life. Her leadership blends innovation with organization, ensuring every event leaves a lasting impact.',  imageUrl: '', achievements: [], icon: Crown, color: 'text-yellow-400' },
   { id: 1, name: 'Mrs. R. Vidhya Muthulakshmi, M.E., (Ph.D)', position: 'Staff  cordinator', bio: 'Mrs. R. Vidhya Muthulakshmi is a dedicated Event Coordinator and Consultant at AURA, known for her strategic guidance and commitment to excellence. Her expertise in planning and consulting ensures that each event aligns with AURA’s vision, delivering memorable experiences that inspire and engage the community.',  imageUrl: '', achievements: [], icon: Crown, color: 'text-yellow-400', },
 
@@ -49,13 +51,14 @@ const clubMembers = [
   { id: 7, name: 'SWEETY VINCENT(III C)', position: 'SECRETARY', bio: '', imageUrl: '', achievements: [], icon: Calendar, color: 'text-neon-purple' },
 
   // Treasurer
-  { id: 8, name: 'ALLENJOSH', position: 'TREASURER', bio: '', imageUrl: '', achievements: [], icon: Award, color: 'text-neon-pink' },
-  { id: 9, name: 'FARIH MD (III G)', position: 'TREASURER', bio: '', imageUrl: '', achievements: [], icon: Award, color: 'text-neon-pink' },
+  { id: 8, name: 'FARIH MD (III G) ', position: 'TREASURER', bio: '', imageUrl: '', achievements: [], icon: Award, color: 'text-neon-pink' },
+  { id: 9, name: 'ALLEN JOSH (II D)', position: 'TREASURER', bio: '', imageUrl: '', achievements: [], icon: Award, color: 'text-neon-pink' },
 
     // Public Relations & Outreach - Head
-  { id: 14, name: 'MOHAMED ARSHAD M ( III F)', position: 'PUBLIC RELATIONS & OUTREACH - HEAD', bio: '', imageUrl: '', achievements: [], icon: Target, color: 'text-neon-blue' },
-  { id: 15, name: 'PRAVEENSANKAR R S (III E)', position: 'PUBLIC RELATIONS & OUTREACH ', bio: '', imageUrl: '', achievements: [], icon: Target, color: 'text-neon-blue' },
-  
+  { id: 14, name: 'MOHAMED ARSHAD M ( III F)', position: 'PUBLIC RELATIONS & OUTREACH ', bio: 'MANAGES SOCIAL MEDIA, BRANDS AND EXTERNAL COMMUNICATIONS', imageUrl: '', achievements: [], icon: Target, color: 'text-neon-blue' },
+  { id: 15, name: 'PRAVEENSANKAR R S (III E)', position: 'PUBLIC RELATIONS & OUTREACH ', bio: 'MANAGES SOCIAL MEDIA, BRANDS AND EXTERNAL COMMUNICATIONS', imageUrl: '', achievements: [], icon: Target, color: 'text-neon-blue' },
+  { id: 37, name: 'DIYANATH K (III F)', position: 'PUBLIC RELATIONS & OUTREACH ', bio: 'MANAGES SOCIAL MEDIA, BRANDS AND EXTERNAL COMMUNICATIONS', imageUrl: '', achievements: [], icon: Target, color: 'text-neon-blue' },
+  { id: 16, name: 'POOVARASAN S (III E)', position: 'PUBLIC RELATIONS & OUTREACH', bio: 'MANAGES SOCIAL MEDIA, BRANDS AND EXTERNAL COMMUNICATIONS', imageUrl: 'MANAGES SOCIAL MEDIA, BRANDS AND EXTERNAL COMMUNICATIONS', achievements: [], icon: Target, color: 'text-neon-blue' },
 
   // Cultural Coordinator
   { id: 10, name: 'HARISH J (III G)', position: 'CULTURAL COORDINATOR', bio: '', imageUrl: '', achievements: [], icon: Star, color: 'text-yellow-400' },
@@ -71,7 +74,7 @@ const clubMembers = [
   { id: 17, name: 'JENISH J (III G)', position: 'MASTER OF CEREMONIES', bio: '', imageUrl: '', achievements: [], icon: Sparkles, color: 'text-neon-pink' },
   { id: 18, name: 'SIDDA GNANA CHARISHMA (III C)', position: 'MASTER OF CEREMONIES', bio: '', imageUrl: '', achievements: [], icon: Sparkles, color: 'text-neon-pink' },
   { id: 19, name: 'RAMYA S (III C)', position: 'MASTER OF CEREMONIES', bio: '', imageUrl: '', achievements: [], icon: Sparkles, color: 'text-neon-pink' },
-  
+
   { id: 21, name: 'DHARSHINI(III A)', position: 'MASTER OF CEREMONIES', bio: '', imageUrl: '', achievements: [], icon: Sparkles, color: 'text-neon-pink' },
   { id: 22, name: 'KUNGUMAYEE M (II B)', position: 'MASTER OF CEREMONIES', bio: '', imageUrl: '', achievements: [], icon: Sparkles, color: 'text-neon-pink' },
   { id: 23, name: 'TARUN PADMANABHAN (II H)', position: 'MASTER OF CEREMONIES', bio: '', imageUrl: '', achievements: [], icon: Sparkles, color: 'text-neon-pink' },
@@ -86,19 +89,22 @@ const clubMembers = [
   // Photography & Videography
   { id: 29, name: 'MONISH MEGHANATHAN (III F)', position: 'PHOTOGRAPHY & VIDEOGRAPHY', bio: '', imageUrl: '', achievements: [], icon: Camera, color: 'text-neon-blue' },
   { id: 30, name: 'NARESH R (III F)', position: 'PHOTOGRAPHY & VIDEOGRAPHY', bio: '', imageUrl: '', achievements: [], icon: Camera, color: 'text-neon-blue' },
+    { id: 33, name: 'NAVEEN C (III F)', position: 'MEMBERSHIP COORDINATOR', bio: '', imageUrl: '', achievements: [], icon: Users, color: 'text-aura-primary' },
   { id: 31, name: 'VISHAL M (II H)', position: 'PHOTOGRAPHY & VIDEOGRAPHY', bio: '', imageUrl: '', achievements: [], icon: Camera, color: 'text-neon-blue' },
   { id: 32, name: 'SUBASH (II H)', position: 'PHOTOGRAPHY & VIDEOGRAPHY', bio: '', imageUrl: '', achievements: [], icon: Camera, color: 'text-neon-blue' },
 
   // Membership Coordinator
-  { id: 33, name: 'NAVEEN C (III F)', position: 'MEMBERSHIP COORDINATOR', bio: '', imageUrl: '', achievements: [], icon: Users, color: 'text-aura-primary' },
-  { id: 34, name: 'SIVA SAKTHI S (III C)', position: 'MEMBERSHIP COORDINATOR', bio: '', imageUrl: '', achievements: [], icon: Users, color: 'text-aura-primary' },
+
+  { id: 34, name: 'JAGAN S (III G)', position: 'MEMBERSHIP COORDINATOR', bio: '', imageUrl: '', achievements: [], icon: Users, color: 'text-aura-primary' },
 
   // Content & Documentation Lead
   { id: 35, name: 'MUTHULAKSHMI A (III B)', position: 'CONTENT & DOCUMENTATION LEAD', bio: '', imageUrl: '', achievements: [], icon: FileText, color: 'text-neon-purple' },
   { id: 36, name: 'SANCTA FANNIE S (III C)', position: 'CONTENT & DOCUMENTATION LEAD', bio: '', imageUrl: '', achievements: [], icon: FileText, color: 'text-neon-purple' },
 
-  { id: 20, name: 'HIBBAN RASHID (III G)', position: 'MARKETING TEAM', bio: '', imageUrl: '', achievements: [], icon: Sparkles, color: 'text-neon-pink' },
-  { id: 16, name: 'POOVARASAN S (III E)', position: 'MARKETING TEAM ', bio: '', imageUrl: '', achievements: [], icon: Target, color: 'text-neon-blue' },
+  { id: 20, name: 'HIBBAN RASHID (III G)', position: 'MARKETING COORDINATOR', bio: 'Drives marketing initiatives, ensuring maximum participation and student engagement in AURA activities.', imageUrl: '', achievements: [], icon: Sparkles, color: 'text-neon-pink' },
+  { id: 20, name: 'HARISH RAGHAVENDRAN (II E)', position: 'MARKETING COORDINATOR', bio: 'Drives marketing initiatives, ensuring maximum participation and student engagement in AURA activities.', imageUrl: '', achievements: [], icon: Sparkles, color: 'text-neon-pink' },
+  
+  
   
 ]
 
