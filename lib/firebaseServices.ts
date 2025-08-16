@@ -38,6 +38,7 @@ export interface MembershipApplication {
   year: string
   section: string
   department: string
+  participation?: string
   membershipId: string
   createdAt: Date
   status: 'pending' | 'approved' | 'rejected'
@@ -173,6 +174,7 @@ export const getMembershipApplications = async (): Promise<MembershipApplication
         year: data.year || '',
         section: data.section || '',
         department: data.department || 'AI&DS',
+        participation: data.participation || '',
         membershipId: data.membershipId || '',
         createdAt: data.createdAt?.toDate?.() || new Date(),
         status: data.status || 'pending'

@@ -20,8 +20,22 @@ const yearOptions = [
 ]
 
 const sectionOptions = [
-  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'
+  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H','I','J','K',
 ]
+
+// Single-choice participation options for the join form
+const participationOptions = [
+  'Dance',
+  'Singing',
+  'Photography',
+  'Tamil Related Events',
+  'Drawing & Painting',
+  'Instrumental Music',
+  'Poetry',
+  'Others'
+] as const
+
+type ParticipationOption = typeof participationOptions[number]
 
 export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
   const [formData, setFormData] = useState({
@@ -31,7 +45,9 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
     year: '',
     section: '',
     department: 'AI&DS',
-    email: ''
+    email: '',
+    participation: '' as ParticipationOption | '',
+    otherParticipation: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
@@ -72,9 +88,14 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
       
       // Validate required fields
       if (!formData.name.trim() || !formData.rollNumber.trim() || !formData.registerNumber.trim() || 
-          !formData.year.trim() || !formData.section.trim() || !formData.email.trim()) {
+          !formData.year.trim() || !formData.section.trim() || !formData.email.trim() || !formData.participation) {
         throw new Error('Please fill in all required fields')
       }
+
+      // Normalize participation (use other text if "Others" is selected)
+      const participationFinal = formData.participation === 'Others'
+        ? (formData.otherParticipation || 'Others')
+        : formData.participation
       
       // Force department to AI&DS for now
       const department = 'AI&DS'
@@ -104,6 +125,7 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
       const result = await addMembershipApplication({
         ...formData,
         department,
+        participation: participationFinal!,
         name: formData.name.trim(),
         rollNumber: formData.rollNumber.trim(),
         registerNumber: formData.registerNumber.trim(),
@@ -123,7 +145,9 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
           year: '',
           section: '',
           department: 'AI&DS',
-          email: ''
+          email: '',
+          participation: '',
+          otherParticipation: ''
         })
         onClose()
       }, 3000)
@@ -316,6 +340,41 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
                     ))}
                   </select>
                 </div>
+              </div>
+
+              {/* Participation - single choice with optional 'Others' input */}
+              <div>
+                <label className="block text-sm font-urbanist font-medium text-gray-300 mb-2">
+                  I like to participate in *
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {participationOptions.map((opt) => (
+                    <label key={opt} className="flex items-center gap-2 p-3 rounded-lg bg-white/5 border border-white/20 cursor-pointer hover:bg-white/10 transition">
+                      <input
+                        type="radio"
+                        name="participation"
+                        value={opt}
+                        checked={formData.participation === opt}
+                        onChange={handleInputChange}
+                        required
+                        className="accent-neon-blue"
+                      />
+                      <span className="text-white font-urbanist">{opt}</span>
+                    </label>
+                  ))}
+                </div>
+                {formData.participation === 'Others' && (
+                  <div className="mt-3">
+                    <input
+                      type="text"
+                      name="otherParticipation"
+                      value={formData.otherParticipation}
+                      onChange={handleInputChange}
+                      placeholder="Please specify"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-neon-blue focus:bg-white/10 transition-all duration-300 font-urbanist"
+                    />
+                  </div>
+                )}
               </div>
 
               {/* Department (AI&DS only; others muted) */}

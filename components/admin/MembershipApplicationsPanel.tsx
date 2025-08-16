@@ -19,7 +19,7 @@ import { formatDate } from '@/lib/utils'
 
 // ----- CSV helpers -----
 const csvHeaders = [
-  'membershipId', 'name', 'email', 'rollNumber', 'registerNumber', 'year', 'section', 'department'
+  'membershipId', 'name', 'email', 'rollNumber', 'registerNumber', 'year', 'section', 'department', 'participation'
 ]
 
 function escapeCsv(val: unknown): string {
@@ -40,7 +40,8 @@ function toCsv(apps: MembershipApplication[]): string {
       a.registerNumber || '',
       a.year || '',
       a.section || '',
-      (a as any).department || 'AI&DS'
+      (a as any).department || 'AI&DS',
+      (a as any).participation || ''
     ].map(escapeCsv).join(',')
     rows.push(row)
   }
@@ -184,9 +185,10 @@ export function MembershipApplicationsPanel() {
                   registerNumber: a.registerNumber || '',
                   year: a.year || '',
                   section: a.section || '',
-                  department: (a as any).department || 'AI&DS'
+                  department: (a as any).department || 'AI&DS',
+                  participation: (a as any).participation || ''
                 }))
-                const ws = utils.json_to_sheet(rows, { header: ['membershipId', 'name', 'email', 'rollNumber', 'registerNumber', 'year', 'section', 'department'] })
+                const ws = utils.json_to_sheet(rows, { header: ['membershipId', 'name', 'email', 'rollNumber', 'registerNumber', 'year', 'section', 'department', 'participation'] })
                 const wb = utils.book_new()
                 utils.book_append_sheet(wb, ws, 'Members')
                 const ts = new Date().toISOString().replace(/[:.]/g, '-')
