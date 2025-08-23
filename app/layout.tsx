@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'AURA - Where Creativity Meets Reality',
   description: 'A futuristic creative club for university students. Join us in exploring the intersection of art, technology, and innovation.',
-  keywords: ['creative club', 'university', 'art', 'technology', 'innovation', 'AURA'],
+  keywords: ['creative club', 'panimalar college of engineering', 'university', 'art', 'technology', 'innovation', 'AURA','auraclub'],
   authors: [{ name: 'AURA Creative Club' }],
   openGraph: {
     title: 'AURA - Where Creativity Meets Reality',
@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'AURA - Where Creativity Meets Reality',
     description: 'A futuristic creative club for university students.',
+  },
+  verification: {
+    google: 'imbTGb19L25oZbngwYP6hfZc15e_5TDal6mwfaliNMM',
   },
 }
 
