@@ -29,12 +29,12 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center px-4 sm:px-8 md:px-12 lg:px-20 pt-12 pb-28 sm:pt-28 sm:pb-32 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center px-4 sm:px-8 md:px-12 lg:px-20 pt-8 pb-28 sm:pt-28 sm:pb-32 overflow-hidden">
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 md:gap-12 lg:gap-16">
           {/* Right Content (Lottie) - first on mobile, second on desktop */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end px-0 sm:px-2">
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end px-0 sm:px-2 -translate-y-6 sm:translate-y-0">
             <motion.div
               initial={{ opacity: 0, x: 60 }}
               animate={{ opacity: 1, x: 0 }}

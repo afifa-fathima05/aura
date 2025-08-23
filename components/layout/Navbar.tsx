@@ -32,17 +32,22 @@ export function Navbar() {
   }, [])
 
   const handleNavigation = (href: string) => {
+    const scrollWithOffset = (hash: string) => {
+      const el = document.querySelector(hash);
+      if (!el) return;
+      const yOffset = -80; // navbar height + small gap
+      const y = (el as HTMLElement).getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.history.pushState(null, '', hash); // update URL hash
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    };
+
     if (pathname === '/') {
-      // If we're on the home page, just scroll to the section
-      const element = document.querySelector(href)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }
+      requestAnimationFrame(() => scrollWithOffset(href));
     } else {
-      // If we're on another page, navigate to home page with the hash
-      router.push(`/${href}`)
+      router.push(`/${href}`);
+      setTimeout(() => scrollWithOffset(href), 250);
     }
-    setIsOpen(false)
+    setIsOpen(false);
   }
 
   return (
