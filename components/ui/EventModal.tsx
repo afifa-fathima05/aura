@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { X, Calendar, MapPin, ExternalLink, Clock } from 'lucide-react'
 import { Event } from '@/types'
 import { formatDateTime } from '@/lib/utils'
+import ShinyText from './ShinyText'
 
 interface EventModalProps {
   event: Event
@@ -131,12 +132,10 @@ export function EventModal({ event, onClose }: EventModalProps) {
                   href={event.registrationLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="btn-neon glass px-6 py-3 rounded-lg font-syne font-semibold text-white border border-neon-green hover:bg-neon-green/20 transition-all duration-300 flex items-center justify-center space-x-2"
+                  className="btn-neon glass px-6 py-3 rounded-lg premium-shiny-border font-syne font-semibold text-white hover:bg-neon-green/10 transition-all duration-300 flex items-center justify-center space-x-2"
                 >
                   <Calendar className="w-5 h-5" />
-                  <span>Register Now</span>
+                  <ShinyText text="Register Now" speed={2.5} className="font-syne font-semibold text-white" />
                 </motion.a>
               )}
 
@@ -172,7 +171,7 @@ export function EventModal({ event, onClose }: EventModalProps) {
                   className="glass px-6 py-3 rounded-lg font-syne font-semibold text-white border border-white/20 hover:border-neon-purple hover:bg-neon-purple/10 transition-all duration-300 flex items-center justify-center space-x-2"
                 >
                   <ExternalLink className="w-5 h-5" />
-                  <span>Learn More</span>
+                  <ShinyText text="Learn More" speed={3} className="font-syne font-semibold text-white" />
                 </motion.a>
               )}
             </div>

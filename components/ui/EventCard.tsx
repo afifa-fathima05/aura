@@ -5,6 +5,7 @@ import { Calendar, MapPin, ExternalLink } from 'lucide-react'
 import { Event } from '@/types'
 import { formatDate } from '@/lib/utils'
 import { SafeImage } from './SafeImage'
+import ShinyText from './ShinyText'
 
 interface EventCardProps {
   event: Event
@@ -104,31 +105,44 @@ export function EventCard({ event, onClick, onLearnMore }: EventCardProps) {
           </div>
         )}
 
-        {/* Action Button */}
-        <div className="flex items-center justify-between">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={(e) => {
-              e.stopPropagation()
-              onLearnMore?.()
-            }}
-            className="text-neon-blue hover:text-white font-urbanist font-medium text-sm transition-colors duration-300"
-          >
-            Learn More
-          </motion.button>
-          
-          {event.externalLink && (
+        {/* Action Buttons */}
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={(e) => {
+                e.stopPropagation()
+                onLearnMore?.()
+              }}
+              className="text-neon-blue hover:text-white font-urbanist font-medium text-sm transition-colors duration-300"
+            >
+              <ShinyText text="Learn More" speed={3} className="font-urbanist font-medium text-sm" />
+            </motion.button>
+            {event.externalLink && (
+              <motion.a
+                href={event.externalLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="text-gray-400 hover:text-neon-blue transition-colors duration-300"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <ExternalLink className="w-4 h-4" />
+              </motion.a>
+            )}
+          </div>
+
+          {event.registrationLink && (
             <motion.a
-              href={event.externalLink}
+              href={event.registrationLink}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="text-gray-400 hover:text-neon-blue transition-colors duration-300"
               onClick={(e) => e.stopPropagation()}
+              className="btn-neon glass px-4 py-2 rounded-lg premium-shiny-border hover:bg-neon-blue/10 transition-all duration-300"
             >
-              <ExternalLink className="w-4 h-4" />
+              <ShinyText text="Register Now" speed={2.5} className="font-syne font-semibold text-white text-sm" />
             </motion.a>
           )}
         </div>

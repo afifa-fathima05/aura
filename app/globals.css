@@ -266,6 +266,29 @@ img.logo-3d {
     background-clip: text;
     animation: gradient-shift 3s ease infinite;
   }
+
+  /* Animated premium shiny border for buttons */
+  .premium-shiny-border {
+    position: relative;
+    border-radius: 0.5rem; /* matches rounded-lg */
+  }
+  .premium-shiny-border::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px; /* border thickness */
+    /* Removed gold/orange, keep cool neon shades */
+    background: linear-gradient(135deg, #8b5cf6, #00d4ff, #06d6a0);
+    background-size: 300% 300%;
+    animation: gradient-shift 3s ease infinite;
+    -webkit-mask: 
+      linear-gradient(#000 0 0) content-box, 
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none; /* keep button clickable */
+  }
 }
 
 /* Particle background animation */

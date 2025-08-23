@@ -5,6 +5,7 @@ import { X, ExternalLink, Calendar, MapPin } from 'lucide-react'
 import { Event } from '@/types'
 import { SafeImage } from './SafeImage'
 import { formatDate } from '@/lib/utils'
+import ShinyText from './ShinyText'
 
 interface EventDetailsModalProps {
   event: Event | null
@@ -185,11 +186,9 @@ export function EventDetailsModal({ event, isOpen, onClose }: EventDetailsModalP
                     href={event.registrationLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="btn-neon glass px-8 py-4 rounded-lg font-syne font-semibold text-white border border-neon-blue hover:bg-neon-blue/20 transition-all duration-300 flex items-center space-x-3"
+                    className="btn-neon glass px-8 py-4 rounded-lg premium-shiny-border font-syne font-semibold text-white hover:bg-neon-blue/10 transition-all duration-300 flex items-center space-x-3"
                   >
-                    <span>Register Now</span>
+                    <ShinyText text="Register Now" speed={2.5} className="font-syne font-semibold text-white" />
                     <ExternalLink className="w-5 h-5" />
                   </motion.a>
                 </motion.div>
