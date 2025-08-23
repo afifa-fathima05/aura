@@ -29,7 +29,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center px-4 sm:px-8 md:px-12 lg:px-20 pt-16 pb-28 sm:pt-28 sm:pb-32 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center px-4 sm:px-8 md:px-12 lg:px-20 pt-12 pb-28 sm:pt-28 sm:pb-32 overflow-hidden">
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 md:gap-12 lg:gap-16">
@@ -51,7 +51,7 @@ const HeroSection = () => {
           </div>
 
           {/* Left Content (Text) */}
-          <div className="order-2 lg:order-1 text-center lg:text-left px-2 sm:px-4 space-y-5 sm:space-y-6">
+          <div className="order-2 lg:order-1 text-center lg:text-left px-2 sm:px-4 space-y-5 sm:space-y-6 -translate-y-6 sm:translate-y-0">
             <motion.div
               initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}
@@ -78,7 +78,7 @@ const HeroSection = () => {
             <motion.div
               {...fadeInUp}
               transition={{ delay: 0.5 }}
-              className="flex justify-center lg:justify-start mt-2 sm:mt-4"
+              className="flex justify-center lg:justify-start mt-0 sm:mt-4"
             >
               <motion.button
                 onClick={() => setIsMembershipModalOpen(true)}
