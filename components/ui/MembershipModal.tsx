@@ -44,7 +44,7 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
     registerNumber: '',
     year: '',
     section: '',
-    department: 'AI&DS',
+    department: '',
     email: '',
     participation: '' as ParticipationOption | '',
     otherParticipation: ''
@@ -88,7 +88,7 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
       
       // Validate required fields
       if (!formData.name.trim() || !formData.rollNumber.trim() || !formData.registerNumber.trim() || 
-          !formData.year.trim() || !formData.section.trim() || !formData.email.trim() || !formData.participation) {
+          !formData.year.trim() || !formData.section.trim() || !formData.email.trim() || !formData.participation || !formData.department.trim()) {
         throw new Error('Please fill in all required fields')
       }
 
@@ -97,11 +97,6 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
         ? (formData.otherParticipation || 'Others')
         : formData.participation
       
-      // Force department to AI&DS for now
-      const department = 'AI&DS'
-      
-
-
       // Attempt to ensure auth to satisfy rules that require request.auth != null
       await ensureAuthenticated()
       
@@ -124,7 +119,7 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
 
       const result = await addMembershipApplication({
         ...formData,
-        department,
+        department: formData.department.trim(),
         participation: participationFinal!,
         name: formData.name.trim(),
         rollNumber: formData.rollNumber.trim(),
@@ -144,7 +139,7 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
           registerNumber: '',
           year: '',
           section: '',
-          department: 'AI&DS',
+          department: '',
           email: '',
           participation: '',
           otherParticipation: ''
@@ -219,14 +214,7 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
             </motion.div>
           ) : (
             <>
-              {/* Department availability note */}
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mb-4 p-4 bg-yellow-500/10 border border-yellow-500/40 rounded-lg text-yellow-300 font-urbanist"
-              >
-                ⚠️ Note: AURA Club is exclusive to AI & DS Dept for now. Expansion to other departments may come soon — stay tuned!
-              </motion.div>
+
 
               {error && (
                 <motion.div
@@ -238,6 +226,16 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
                 </motion.div>
               )}
               
+              {/* Info note */}
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-4 p-4 bg-blue-500/10 border border-blue-500/40 rounded-lg text-blue-300 font-urbanist"
+              >
+                   ⚠️ NOTE : <br></br>
+                   For Event registrations, please kindly scroll through event section - This is an membership form
+              </motion.div>
+
               <form onSubmit={handleSubmit} className="space-y-6">
               {/* Personal Information */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -345,7 +343,7 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
               {/* Participation - single choice with optional 'Others' input */}
               <div>
                 <label className="block text-sm font-urbanist font-medium text-gray-300 mb-2">
-                  I like to participate in *
+                  I'm Intrested in  *
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {participationOptions.map((opt) => (
@@ -377,36 +375,27 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
                 )}
               </div>
 
-              {/* Department (AI&DS only; others muted) */}
+              {/* Department (all departments selectable) */}
               <div>
                 <label className="block text-sm font-urbanist font-medium text-gray-300 mb-2">
                   Department *
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                  {/* Active selectable option */}
-                  <label className="flex items-center gap-2 p-3 rounded-lg bg-white/5 border border-white/20 cursor-pointer hover:bg-white/10 transition">
-                    <input
-                      type="radio"
-                      name="department"
-                      value="AI&DS"
-                      checked={formData.department === 'AI&DS'}
-                      onChange={handleInputChange}
-                      className="accent-neon-blue"
-                    />
-                    <span className="text-white font-urbanist">AI&DS</span>
-                  </label>
-
-                  {/* Disabled placeholders */}
-                  {['AI&ML','CSE','IT','CSBS','EEE','ECE','MECH'].map((dept) => (
-                    <div key={dept} className="flex items-center gap-2 p-3 rounded-lg bg-white/5 border border-white/10">
-                      <input type="radio" disabled className="opacity-40" />
-                      <span className="text-gray-500 font-urbanist">{dept}</span>
-                    </div>
+                  {['AI&DS','AI&ML','CSE','IT','CSBS','EEE','ECE','MECH'].map((dept) => (
+                    <label key={dept} className="flex items-center gap-2 p-3 rounded-lg bg-white/5 border border-white/20 cursor-pointer hover:bg-white/10 transition">
+                      <input
+                        type="radio"
+                        name="department"
+                        value={dept}
+                        checked={formData.department === dept}
+                        onChange={handleInputChange}
+                        className="accent-neon-blue"
+                        required
+                      />
+                      <span className="text-white font-urbanist">{dept}</span>
+                    </label>
                   ))}
                 </div>
-                <p className="mt-2 text-xs text-gray-400 font-urbanist">
-                  Other departments coming soon.
-                </p>
               </div>
 
               {/* Submit Button */}

@@ -69,6 +69,7 @@ export function MembershipApplicationsPanel() {
   // Filters
   const [filterYear, setFilterYear] = useState<string>('')
   const [filterSection, setFilterSection] = useState<string>('')
+  const [filterDepartment, setFilterDepartment] = useState<string>('')
 
   const years = useMemo(() => {
     const ys = Array.from(new Set(applications.map(a => a.year).filter(Boolean))) as string[]
@@ -80,12 +81,18 @@ export function MembershipApplicationsPanel() {
     return ss.sort()
   }, [applications])
 
+  const departments = useMemo(() => {
+    const ds = Array.from(new Set(applications.map(a => a.department).filter(Boolean))) as string[]
+    return ds.sort()
+  }, [applications])
+
   const filteredApplications = useMemo(() => {
     return applications.filter(a => (
       (filterYear ? a.year === filterYear : true) &&
-      (filterSection ? a.section === filterSection : true)
+      (filterSection ? a.section === filterSection : true) &&
+      (filterDepartment ? a.department === filterDepartment : true)
     ))
-  }, [applications, filterYear, filterSection])
+  }, [applications, filterYear, filterSection, filterDepartment])
 
   useEffect(() => {
     loadApplications()
@@ -149,9 +156,19 @@ export function MembershipApplicationsPanel() {
               <option key={s} value={s}>{s}</option>
             ))}
           </select>
-          {(filterYear || filterSection) && (
+          <select
+            value={filterDepartment}
+            onChange={(e) => setFilterDepartment(e.target.value)}
+            className="h-10 min-w-36 px-3 py-2 bg-white/5 border border-white/20 rounded-lg text-white focus:outline-none focus:border-aura-primary"
+          >
+            <option value="">All Departments</option>
+            {departments.map(d => (
+              <option key={d} value={d}>{d}</option>
+            ))}
+          </select>
+          {(filterYear || filterSection || filterDepartment) && (
             <button
-              onClick={() => { setFilterYear(''); setFilterSection(''); }}
+              onClick={() => { setFilterYear(''); setFilterSection(''); setFilterDepartment(''); }}
               className="px-4 py-2 sm:px-4 sm:py-2.5 glass rounded-lg text-gray-300 hover:text-white"
             >
               Clear

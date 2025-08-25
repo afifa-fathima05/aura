@@ -114,25 +114,15 @@ export const addMembershipApplication = async (applicationData: Omit<MembershipA
     const membershipRef = collection(db, MEMBERSHIP_COLLECTION)
     const now = new Date()
 
-    // Generate membershipId parts
-    const yearJoined = String(now.getFullYear()).slice(-2) // e.g., 2025 -> "25"
-    const yearMap: Record<string, string> = {
-      'First Year': '1Y',
-      'Second Year': '2Y',
-      'Third Year': '3Y',
-      'Fourth Year': '4Y'
-    }
-    const yearCode = yearMap[applicationData.year] || '1Y'
-
-    // Department code fixed as AIDS per requirement
-    const departmentCode = 'AIDS'
-
-
-    // Skip reading the collection to avoid read permission requirements
-    // Create a new document ID and derive a short, unique suffix for readability
+    // Generate premium-style membershipId: (DEPARTMENT)-(UNIQUE)
+    // Sanitize department to an uppercase alphanumeric code, fallback to AURA if empty
     const newDocRef = doc(membershipRef)
+    const departmentCode = (applicationData.department || '')
+      .trim()
+      .toUpperCase()
+      .replace(/[^A-Z0-9]/g, '') || 'AURA'
     const shortId = newDocRef.id.slice(0, 6).toUpperCase()
-    const membershipId = `MEM-AURA${yearJoined}-${yearCode}-${departmentCode}-${shortId}`
+    const membershipId = `${departmentCode}-${shortId}`
 
     const dataToSave = {
       ...applicationData,
