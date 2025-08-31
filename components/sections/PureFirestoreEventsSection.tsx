@@ -203,7 +203,7 @@ export function PureFirestoreEventsSection() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="mt-4 text-lg text-gray-400 font-medium"
           >
-            <span>{eventCounts.total} total events</span>
+            <span>Total events conducted: {eventCounts.total}</span>
           </motion.div>
         </div>
 

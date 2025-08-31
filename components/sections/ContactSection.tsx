@@ -9,6 +9,8 @@ import {
   Send, 
   Instagram, 
   Linkedin, 
+  Facebook,
+  Youtube,
   MessageCircle,
   Clock,
   Globe
@@ -48,8 +50,9 @@ const contactInfo = [
 
 const socialLinks = [
   { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/auraclub.pec?igsh=MXEwemFqOThnOWJyYw%3D%3D&utm_source=qr', color: 'hover:text-pink-400' },
-   { name: 'LinkedIn', icon: Linkedin, href: '#', color: 'text-blue-500' },
-
+  { name: 'LinkedIn', icon: Linkedin, href: 'http://linkedin.com/company/auraclub-pec/', color: 'text-blue-500' },
+  { name: 'Facebook', icon: Facebook, href: 'https://www.facebook.com/auraclub.pec', color: 'hover:text-blue-400' },
+  { name: 'YouTube', icon: Youtube, href: 'https://www.youtube.com/@auraclubpec', color: 'hover:text-red-500' },
 ]
 
 export function ContactSection() {

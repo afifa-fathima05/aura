@@ -5,6 +5,8 @@ import { motion } from 'framer-motion'
 import { 
   Instagram, 
   Linkedin, 
+  Facebook,
+  Youtube,
   Mail, 
   MapPin, 
   Phone,
@@ -13,7 +15,9 @@ import {
 
 const socialLinks = [
   { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/auraclub.pec?igsh=MXEwemFqOThnOWJyYw%3D%3D&utm_source=qr', color: 'text-pink-400' },
-  { name: 'LinkedIn', icon: Linkedin, href: '#', color: 'text-blue-500' },
+  { name: 'LinkedIn', icon: Linkedin, href: 'http://linkedin.com/company/auraclub-pec/', color: 'text-blue-500' },
+  { name: 'Facebook', icon: Facebook, href: 'https://www.facebook.com/auraclub.pec', color: 'text-blue-400' },
+  { name: 'YouTube', icon: Youtube, href: 'https://www.youtube.com/@auraclubpec', color: 'text-red-500' },
 ]
 
 
