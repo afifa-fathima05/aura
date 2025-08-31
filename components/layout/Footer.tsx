@@ -148,7 +148,7 @@ export function Footer() {
               <p>© 2024 AURA Creative Club</p>
               <p>All rights reserved.</p>
               <p className="mt-2">Design and developed by 
-                <a href="https://www.instagram.com/arshu.x7/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-neon-blue"> Mohamed Arshad</a>
+                <a href="https://portfolio-c177e.web.app" target="_blank" rel="noopener noreferrer" className="text-white hover:text-neon-blue"> Mohamed Arshad</a>
               </p>
             </div>
             <div className="flex flex-col sm:flex-row sm:space-x-6 gap-2 sm:gap-0 items-center md:items-end">
