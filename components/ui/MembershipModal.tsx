@@ -13,10 +13,10 @@ interface MembershipModalProps {
 
 
 const yearOptions = [
-  'First Year',
-  'Second Year',
-  'Third Year',
-  'Fourth Year'
+  '2026',
+  '2027',
+  '2028',
+  '2029'
 ]
 
 const sectionOptions = [
@@ -305,7 +305,7 @@ export function MembershipModal({ isOpen, onClose }: MembershipModalProps) {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-urbanist font-medium text-gray-300 mb-2">
-                    Academic Year *
+                    Year of Passing *
                   </label>
                   <select
                     name="year"

@@ -114,15 +114,30 @@ export const addMembershipApplication = async (applicationData: Omit<MembershipA
     const membershipRef = collection(db, MEMBERSHIP_COLLECTION)
     const now = new Date()
 
-    // Generate premium-style membershipId: (DEPARTMENT)-(UNIQUE)
-    // Sanitize department to an uppercase alphanumeric code, fallback to AURA if empty
+    // Generate membershipId in the format: YEAROF PASSING - DEPTCODE - ROLLNUMBER (only trailing digits of roll)
+    // Example: roll "21cs123" => use "123" so membershipId: 2028-AIDS-123
+    // Sanitize inputs and extract trailing numeric segment from roll number
     const newDocRef = doc(membershipRef)
+
+    const yearCode = (applicationData.year || '')
+      .trim()
+      .toUpperCase()
+      .replace(/[^0-9A-Z]/g, '')
+
     const departmentCode = (applicationData.department || '')
       .trim()
       .toUpperCase()
+      // Turn strings like "AI&DS" into "AIDS" and keep only A-Z0-9
       .replace(/[^A-Z0-9]/g, '') || 'AURA'
-    const shortId = newDocRef.id.slice(0, 6).toUpperCase()
-    const membershipId = `${departmentCode}-${shortId}`
+
+    const rollRaw = (applicationData.rollNumber || '').trim()
+    const rollDigits = rollRaw.match(/(\d+)$/i)?.[1] || ''
+    const rollCode = rollDigits
+
+    // Build ID without hyphens, using last two digits of year
+    const yearDigits = (yearCode || '').replace(/[^0-9]/g, '')
+    const yearShort = yearDigits.slice(-2)
+    const membershipId = `${yearShort}AURA${departmentCode}${rollCode}`
 
     const dataToSave = {
       ...applicationData,
