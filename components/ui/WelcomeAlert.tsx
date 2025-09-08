@@ -64,7 +64,7 @@ export default function WelcomeAlert() {
               </p>
             
               <p className="font-urbanist text-xs sm:text-sm text-gray-300 leading-relaxed break-words">
-                The photograpy event is upcoming — all department participants can join...
+                Welcome to the Auraclub - Aura Club is now open to all departments...
               </p>
             </div>
             <button
