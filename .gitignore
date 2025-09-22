@@ -1,0 +1,8 @@
+node_modules
+.firebase
+/dist
+firebase.json
+.firebaserc
+.next
+.next/cache
+out.DS_Store
